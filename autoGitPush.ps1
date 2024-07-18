@@ -14,6 +14,7 @@ Function gitPush {
     Write-Output $ScriptDir
 
     Set-Location $ScriptDir # 切换到项目路径
+    git pull origin main >> .\gitpush.log
     $now = Get-Date # 获取时间日期对象
     $msg = "==> " + $now.ToString('yyyy-MM-dd HH:mm:ss') + " commit <=="# 提交的消息
     # 将提交信息输出到日志文件gitpush.log
