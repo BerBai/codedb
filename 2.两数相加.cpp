@@ -6,7 +6,7 @@
  * @FilePath: \.leetcode\2.两数相加.cpp
  * @Description: 
  * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ * Copyright (c) 2024 by bai5775@outlook.com, All Rights Reserved. 
  */
 /*
  * @lc app=leetcode.cn id=2 lang=cpp

@@ -2,11 +2,11 @@
  * @Author: ber bai5775@outlook.com
  * @Date: 2024-07-17 17:14:03
  * @LastEditors: ber bai5775@outlook.com
- * @LastEditTime: 2024-07-17 17:27:13
+ * @LastEditTime: 2024-07-18 08:40:58
  * @FilePath: \.leetcode\2.两数相加.c
  * @Description: 
  * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ * Copyright (c) 2024 by bai5775@outlook.com, All Rights Reserved. 
  */
 /*
  * @lc app=leetcode.cn id=2 lang=c
