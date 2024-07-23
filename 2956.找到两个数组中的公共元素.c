@@ -1,4 +1,14 @@
 /*
+ * @Author:  ber bai5775@outlook.com
+ * @Date: 2024-07-16 17:12:39
+ * @LastEditors:  ber bai5775@outlook.com
+ * @LastEditTime: 2024-07-23 10:29:32
+ * @FilePath: 2956.找到两个数组中的公共元素.c
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by bai5775@outlook.com, All Rights Reserved. 
+ */
+/*
  * @lc app=leetcode.cn id=2956 lang=c
  *
  * [2956] 找到两个数组中的公共元素

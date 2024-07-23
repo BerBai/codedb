@@ -1,3 +1,13 @@
+'''
+Author:  ber bai5775@outlook.com
+Date: 2024-07-18 08:39:21
+LastEditors:  ber bai5775@outlook.com
+LastEditTime: 2024-07-23 10:29:28
+FilePath: 2.两数相加.py
+Description: 
+
+Copyright (c) 2024 by bai5775@outlook.com, All Rights Reserved. 
+'''
 #
 # @lc app=leetcode.cn id=2 lang=python3
 #

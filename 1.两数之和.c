@@ -1,4 +1,14 @@
 /*
+ * @Author:  ber bai5775@outlook.com
+ * @Date: 2024-07-16 10:47:51
+ * @LastEditors:  ber bai5775@outlook.com
+ * @LastEditTime: 2024-07-23 10:27:52
+ * @FilePath: 1.两数之和.c
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by bai5775@outlook.com, All Rights Reserved. 
+ */
+/*
  * @lc app=leetcode.cn id=1 lang=c
  *
  * [1] 两数之和
