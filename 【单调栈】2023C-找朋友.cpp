@@ -1,7 +1,7 @@
 /*
  * @hw id=2023C lang=cpp
  *
- * 找朋友
+ * 删除重复数字后的最大数字
  */
 
 // @hw code=start
