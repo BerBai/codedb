@@ -12,18 +12,19 @@ class Solution:
 
         for i in range(len(nums)):
             if i == 0 or nums[i]!=nums[i-1]:
+                # 双指针 优化
                 j = i + 1
                 k = len(nums) - 1
                 while j < k:
                     sum = nums[i] + nums[j] + nums[k]
                     if sum == target:
                         return sum
-                    elif sum > target:
+                    elif abs(sum - target) < abs(ans - target):
+                        ans = sum
+                    if sum > target:
                         k -= 1
-                    else:
+                    elif sum < target:
                         j += 1
         return ans
-
-
 # @lc code=end
 
