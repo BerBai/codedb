@@ -7,6 +7,14 @@
 # @lc code=start
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        
+        ans = 0
+        r, l = 0, 0
+        while(r < len(s)):
+            if s[r] not in s[l:r]:
+                r += 1
+            else:
+                ans = max(ans, r-l)
+                l = s.index(s[r], l)
+
 # @lc code=end
 
