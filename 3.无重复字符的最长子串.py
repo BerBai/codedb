@@ -15,6 +15,11 @@ class Solution:
             else:
                 ans = max(ans, r-l)
                 l = s.index(s[r], l)
+                l += 1
+                r += 1
+        ans = max(ans, r-l)
+        return ans
+
 
 # @lc code=end
 
