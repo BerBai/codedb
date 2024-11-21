@@ -4,43 +4,41 @@
 # 找到它
 #
 # @hw code=start
+def find_word(matrix, word, N, M):
+    # 方向数组，分别表示上、下、左、右
+    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+    # 检查当前位置是否能继续匹配单词
+    def dfs(i, j, idx):
+        if idx == len(word):  # 如果已经找到完整的单词
+            return True
+        
+        # 试探四个方向
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            # 检查新位置是否越界以及是否匹配字母
+            if 0 <= ni < N and 0 <= nj < M and matrix[ni][nj] == word[idx]:
+                # 继续搜索
+                if dfs(ni, nj, idx + 1):
+                    return True
+        return False
+
+    # 遍历整个矩阵寻找起始点
+    for i in range(N):
+        for j in range(M):
+            if matrix[i][j] == word[0]:  # 找到匹配的第一个字母
+                if dfs(i, j, 1):  # 继续从这个位置往四个方向搜索
+                    return i + 1, j + 1  # 返回1-based坐标
+
+    return "NO"
+
 n, m = map(int, input().split())
 target = input()
-mapc = [[_ for _ in range(m)] for _ in range(n)]
-
-for i in range(n):
-    mapc[i] = list(input())
-
-
-step = [(-1, 0), (1, 0),(0, -1),(0, 1)]
-
-def calBack(i, j, arr, idxarr, isVis):
-    if mapc[i][j] == target[len(arr)]:
-        # 只标记出发点 防止重复
-        if len(arr) == 0:
-            isVis[i][j] = True
-        arr.appeng(mapc[i][j])
-        idxarr.append((i, j))
-
-    if len(arr) == len(target):
-        print(f'{idxarr[0][0]} {idxarr[0][1]}')
-        exit()
-
-    for s in step:
-        x, y = i + s[0], j + s[1]
-        if x < 0 or x >= n or y < 0 or y >= m or isVis[x][y]:
-            continue
-        else:
-            calBack(x, y, arr, idxarr, isVis)
-            arr.pop()
-            idxarr.pop()
-if len(target) > n * m:
-    print("NO")
+matrix = [input().strip() for _ in range(n)]
+res = find_word(matrix, target, n, m)
+if res == 'NO':
+    print(res)
 else:
-    isVis = [[False for _ in range(m)] for _ in range(n)]
-    arr = []
-    idxarr = []
-    calBack(0,0,arr,idxarr,isVis)
-    print("NO")
+    print(res[0], res[1])
 
 # @hw code=end
