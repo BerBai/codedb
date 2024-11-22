@@ -5,26 +5,26 @@
 #
 
 # @hw code=start
-n, m = map(int, input().split())
-arr = {}
-for i in range(m):
-    k, v = map(int, input().split())
-    if k not in arr:
-        arr[k] = [v]
-    else:
-        arr[k].append(v)
+from collections import deque
 
-queue = arr[0]
+n, m = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(m)]
+
+arr.sort(key=lambda x: x[0])
+
+queue = deque()
+for t, i in arr:
+    if t == arr[0][0]:
+        queue.append(i)
 
 vis = []
 time = 0
 while len(queue) > 0:
-
     time += 1
     k = len(queue)
     while k > 0:
         k -= 1
-        cur = queue.pop(0)
+        cur = queue.popleft()
         vis.append(cur)
         l = (cur - 1 + n) % n
         r = (cur + 1) % n
