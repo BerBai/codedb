@@ -26,11 +26,11 @@ for n, c in arr:
 ns = sorted(cnts.keys())
 
 if len(c_cnts) == 1:
-    if value_map[ns[-1]] - value_map[0] == 4:
+    if value_map[ns[-1]] - value_map[ns[0]] == 4:
     	print(1)
         exit()
 if len(cnts) == 2:
-    if max(cnts.values) == 4:
+    if max(cnts.values()) == 4:
         print(2)
         exit()
     else:
