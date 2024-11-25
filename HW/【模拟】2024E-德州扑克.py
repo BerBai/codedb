@@ -23,11 +23,12 @@ for n, c in arr:
     else:
         cnts[n] += 1
         
-ns = sorted(cnts.keys())
+ns = sorted(cnts.keys(), key=lambda x: value_map[x])
 
 if len(c_cnts) == 1:
-    if value_map[ns[-1]] - value_map[ns[0]] == 4:
-    	print(1)
+    # 特殊处理
+    if (ns[-1] == 'A' and value_map[ns[-2]] - value_map[ns[0]] == 3) or (value_map[ns[-1]] - value_map[ns[0]] == 4):
+        print(1)
         exit()
 if len(cnts) == 2:
     if max(cnts.values()) == 4:
@@ -39,9 +40,9 @@ if len(cnts) == 2:
 if len(c_cnts) == 1:
     print(4)
     exit()
-if len(c_cnts) == 5:
-    if value_map[ns[-1]] - value_map[ns[0]] == 4:
-    	print(5)
+if len(c_cnts) != 1:
+    if (ns[-1] == 'A' and value_map[ns[-2]] - value_map[ns[0]] == 3) or (value_map[ns[-1]] - value_map[ns[0]] == 4):
+        print(5)
         exit()
 if len(cnts) == 3 and max(cnts.values()) == 3:
     print(6)
