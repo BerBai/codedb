@@ -24,12 +24,18 @@ for j, i, c in arr:
 
 vis = [0] * n
 
+ans = 0
 def dfs(cur):
-    if vis[cur] == 1:
+    if vis[cur] == 2:
         return
     vis[cur] = 1
+    
     for v in dit[cur]:
-        d
+        ans += dfs(v)
+    vis[cur] = 2
+    return ans
+
+
 
 
 # @hw code=end
