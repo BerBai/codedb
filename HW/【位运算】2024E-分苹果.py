@@ -6,6 +6,21 @@
 
 # @hw code=start
 
-# 注意获取输入的格式
+def cal_a(nums):
+    res = 0
+    for num in nums:
+        res ^= num
+    return res
 
+n = int(input())
+nums = list(map(int, input().split()))
+
+need_a = cal_a(nums)
+
+nums.sort()
+
+if need_a != 0:
+    print(-1)
+else:
+    print(sum(nums[1:]))
 # @hw code=end
