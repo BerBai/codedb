@@ -6,4 +6,8 @@
 
 # @hw code=start
 
+n = int(input())
+arr = [0] * n
+for i in range(n):
+    arr[i] = int(input())
 # @hw code=end
