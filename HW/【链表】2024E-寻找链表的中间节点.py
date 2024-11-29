@@ -10,7 +10,6 @@ class LinkedNode:
         self.value = value
         self.next = None
 
-
 head_addr, nstr = input().split()
 n = int(nstr)
 arr = [input().split() for _ in range(n)]
@@ -31,7 +30,8 @@ while(nexts[cur_key] != '-1'):
     cur_key = nexts[cur_key]
 
 l, f = nodes[head_key], nodes[head_key]
-while f != None:
+# 出错点1：快慢指针结束条件，需要判断当前 下一个节点
+while f and f.next:
     l = l.next
     f = f.next.next
 
