@@ -13,8 +13,8 @@ def cal_max(l, r, t):
     if t <= 1:
         return 0
     
-    if mem[l][r][t] != -1:
-        return mem[l][r][t]
+    # if mem[l][r][t] != -1:
+    #     return mem[l][r][t]
 
     # 馋货选最大的
     if arr[l] < arr[r]:
