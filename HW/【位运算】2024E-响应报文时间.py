@@ -12,7 +12,8 @@ def cal_resp_time(T, M):
     else:
         mant = M & 0b00001111
         exp = (M & 0b01110000) >> 4
-        return (mant | 0x10) << (exp + 3)
+        # 出错点1：忘记加上收到时间T
+        return T + (mant | 0x10) << (exp + 3)
 
 
 C = int(input())
