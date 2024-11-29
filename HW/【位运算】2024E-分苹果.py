@@ -19,6 +19,7 @@ need_a = cal_a(nums)
 
 nums.sort()
 
+# 如果a异或后不等于0，则无法得到结果
 if need_a != 0:
     print(-1)
 else:
