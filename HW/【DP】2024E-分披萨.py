@@ -13,8 +13,8 @@ def cal_max(l, r, t):
     if t <= 1:
         return 0
     
-    # if mem[l][r][t] != -1:
-    #     return mem[l][r][t]
+    if mem[l][r][t] != -1:
+        return mem[l][r][t]
 
     # 馋货选最大的
     if arr[l] < arr[r]:
@@ -32,9 +32,8 @@ def cal_max(l, r, t):
 n = int(input())
 arr = [int(input()) for _ in range(n)]
 ans = 0
-
+mem = [[[-1 for _ in range(n)] for _ in range(n)] for _ in range(n)]
 for i in range(n):
-    mem = [[[-1] * n] * n] * n
     ans = max(ans, arr[i] + cal_max((i - 1 + n) % n, (i + 1) % n, n - 1))
 
 print(ans)
