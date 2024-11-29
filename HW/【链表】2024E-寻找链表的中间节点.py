@@ -10,16 +10,31 @@ class LinkedNode:
         self.value = value
         self.next = None
 
-def build(head, nodes):
-    for node in nodes:
-        if 
 
 head_addr, nstr = input().split()
 n = int(nstr)
-nodes = [input().split() for _ in range(n)]
+arr = [input().split() for _ in range(n)]
 
-for addr, val, parent in nodes:
+nodes = {}
+nexts = {}
+for addr, val, next in arr:
     if addr == head_addr:
-        head = LinkedNode(val)
+        cur_key = addr
+        head_key = addr
+        
+    nodes[addr] = LinkedNode(val)
+    nexts[addr] = next
+
+
+while(nexts[cur_key] != '-1'):
+    nodes[cur_key].next = nodes[nexts[cur_key]]
+    cur_key = nexts[cur_key]
+
+l, f = nodes[head_key], nodes[head_key]
+while f != None:
+    l = l.next
+    f = f.next.next
+
+print(l.value)
 
 # @hw code=end
