@@ -1,39 +1,37 @@
 #
 # @hw id=2024E lang=python3
 #
-# 【DP】2024E-分披萨
+# 【mem】2024E-分披萨
 #
 
 # @hw code=start
-def max_lr(l, r):
-    if dp[l][r] != -1:
-        return dp[l][r]
+
+# 区间 [l, r] 里，“吃货”能分得的最大披萨大小的总和, t剩余数
+def cal_max(l, r, t):
+    if t <= 1:
+        mem[l][r][t] = 0
+        return 0
+    # if mem[l][r][t] != -1:
+    #     return mem[l][r][t]
+
+    # 馋嘴选最大的
     if arr[l] > arr[r]:
-        l = (l + 1) % n
+        r = (r + 1) % n
     else:
-        r = (r + n - 1) % n
-    
-    if l == r:
-        dp[l][r] = arr[l]
-    else:
-        # 取左边
-        left = arr[l] + max_lr((l + 1) % n, r)
-        # 取右边
-        right = arr[r] + max_lr(l, (r + n - 1) % n)
-        dp[l][r] = max(left, right)
-    return dp[l][r]
-    
+        l = (l - 1 + n) % n
+
+    # 吃货两种选择
+    left = arr[l] + cal_max((l - 1 + n) % n, r, t - 2)
+    right = arr[r] + cal_max(l, (r + 1) % n, t - 2)
+    mem[l][r][t] = max(left, right)
+    return mem[l][r][t]
 
 n = int(input())
-arr = [0] * n
-for i in range(n):
-    arr[i] = int(input())
-
-# dp[l][r] 表示l-r区间取得的最大值
-dp = [[-1] * n for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
+mem = [[[-1] * n] * n] * n
 ans = 0
 for i in range(n):
-    ans = max(ans, max_lr((i + 1) % n, (i + n - 1) % n) + arr[i])
+    ans = max(ans, arr[i] + cal_max((i - 1 + n) % n, (i + 1) % n, n - 1))
 
 print(ans)
 # @hw code=end
