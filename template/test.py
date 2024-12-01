@@ -1,10 +1,3 @@
-#
-# @hw id=2024E lang=python3
-#
-# 【BFS】2024E-流浪地球
-#
-
-# @hw code=start
 from collections import deque
 
 n, m = map(int, input().split())
@@ -17,34 +10,29 @@ for t, i in arr:
     else:
         dt[t].append(i)
 
-vis = []
 time = 0
 queue = deque()
+vis = []
 while time < n:
-    # 点火 入队
     if time in dt:
         for i in dt[time]:
             if i not in vis and i not in queue:
                 queue.append(i)
-    
-    # 同一时间触发的出队
-    k = len(queue)
-    while k > 0:
-        k -= 1
-        cur = queue.popleft()
-        vis.append(cur)
-        l = (cur - 1 + n) % n
-        r = (cur + 1) % n
+    tn = len(queue)
+    while tn:
+        i = queue.popleft()
+        vis.append(i)
+        l = (i - 1 + n) % n
+        r = (i + 1) % n
         if l not in vis and l not in queue:
             queue.append(l)
         if r not in vis and r not in queue:
             queue.append(r)
-    
-    if len(queue) + len(vis) == n:
-            break
+        tn -= 1
+    if len(vis) + len(queue) == n:
+        break
     time += 1
+queue.sort()
 print(len(queue))
-# 输入需要升序排序
-queue = sorted(queue)
-print(' '.join([str(num) for num in queue]))
-# @hw code=end
+print(' '.join(queue))
+        
