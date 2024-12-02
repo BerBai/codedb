@@ -11,24 +11,20 @@ def cal(nums, current, result, k):
 
     for i in range(len(nums)):
         num = nums[i]
-        newNums = nums[:i] + nums[i+1:]
-        cal(newNums, current + str(num), result, k)
-
+        new_nums = nums[:i] + nums[i+1:]
+        cal(new_nums, current + str(num), result, k)
         if len(result) == k:
             return
 
 n = int(input().strip())
 k = int(input().strip())
 
-if n == 1:
-    print("1")
-    exit()
-
 nums = [i+1 for i in range(n)]
 result = []
 
 cal(nums, "", result, k)
 
-result.sort()
+# 已经是有序的数组了
+# result.sort()
 print(result[k-1])
 # @hw code=end
