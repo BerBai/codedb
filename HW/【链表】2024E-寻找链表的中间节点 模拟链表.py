@@ -5,36 +5,21 @@
 #
 
 # @hw code=start
-class LinkedNode:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-head_addr, nstr = input().split()
-n = int(nstr)
-arr = [input().split() for _ in range(n)]
+head, n = input().strip().split()
+n = int(n)
 
 nodes = {}
-nexts = {}
-for addr, val, next in arr:
-    if addr == head_addr:
-        cur_key = addr
-        head_key = addr
-        
-    nodes[addr] = LinkedNode(val)
-    nexts[addr] = next
+for i in range(n):
+    addr, data, next = input().strip().split()
+    nodes[addr] = [data, next]
 
+s, f = head, head
+ans = nodes[s][0]
+while f in nodes and nodes[f][1] in nodes:
+    s = nodes[s][1]
+    f = nodes[f][1]
+    f = nodes[f][1]
+    ans = nodes[s][0]
 
-while(nexts[cur_key] != '-1'):
-    nodes[cur_key].next = nodes[nexts[cur_key]]
-    cur_key = nexts[cur_key]
-
-l, f = nodes[head_key], nodes[head_key]
-# 出错点1：快慢指针结束条件，需要判断当前 下一个节点
-while f and f.next:
-    l = l.next
-    f = f.next.next
-
-print(l.value)
-
+print(ans)
 # @hw code=end
